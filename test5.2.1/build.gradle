@@ -1,0 +1,26 @@
+wrapper {
+    gradleVersion = '5.2.1'
+}
+
+apply plugin: 'application'
+apply plugin: 'eclipse'
+
+group = pGroup
+version = pVersion
+
+mainClassName = "de.topobyte.TestPrint"
+
+startScripts.enabled = false
+
+task createStartScripts(type: CreateStartScripts) {
+    outputDir = file('build/scripts')
+    mainClassName = 'de.topobyte.TestPrint'
+    applicationName = 'test'
+    classpath = project.tasks.startScripts.classpath
+    defaultJvmOpts = ['-Dfoo=$APP_HOME']
+    doLast {
+        unixScript.text = unixScript.text.replaceAll('\\\\\\\$APP_HOME', '\\$APP_HOME')
+    }
+}
+
+tasks.installDist.dependsOn(tasks.createStartScripts)

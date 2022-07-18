@@ -17,9 +17,9 @@ task createStartScripts(type: CreateStartScripts) {
     mainClassName = 'de.topobyte.TestPrint'
     applicationName = 'test'
     classpath = project.tasks.startScripts.classpath
-    defaultJvmOpts = ['-Dfoo=$APP_HOME']
+    defaultJvmOpts = ['-Dfoo=APP_HOME_PLACEHOLDER']
     doLast {
-        unixScript.text = unixScript.text.replaceAll('\\\\\\\$APP_HOME', '\\$APP_HOME')
+        unixScript.text = unixScript.text.replace('APP_HOME_PLACEHOLDER', "'\$APP_HOME'")
     }
 }
 

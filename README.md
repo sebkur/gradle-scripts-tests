@@ -6,7 +6,7 @@ behavior of the start scripts created by the different versions of Gradle.
 
 In particular it tests the ability to pass system properties via the
 `defaultJvmOpts` parameter and pass an environment variable such as
-`$APP_HOME`. Because "$" gets replaced with "\$", a `doLast`
+`$APP_HOME`. Because "$" gets replaced with "\\$", a `doLast`
 action is used to remove that escape character.
 
 This hack used to work up until Gradle 6.9.1 but fails with version 6.9.2

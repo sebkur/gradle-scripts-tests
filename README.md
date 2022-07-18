@@ -12,6 +12,8 @@ action is used to remove that escape character.
 This hack used to work up until Gradle 6.9.1 but fails with version 6.9.2
 and newer.
 
+With commit 5beff473c63260a1408f0859ec06716ece33c61d a fix has been found!
+
 Run this to build all of the projects and run the scripts created during
 build:
 
